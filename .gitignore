@@ -1,5 +1,9 @@
 *
 
+!.gitignore
 !astronvim/
 !astronvim/**/*
-!wezterm/*
+!wezterm/
+!wezterm/**/*
+!helix/
+!helix/**/*
