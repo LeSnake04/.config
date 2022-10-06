@@ -5,3 +5,10 @@ line-number = "relative"
 
 [editor.cursor-shape]
 insert = "underline"
+
+[keys.normal."backspace"]
+c = ":bc"
+C = [":w", ":bc"]
+w = ":w"
+W = ":wa"
+x = ":xa"
