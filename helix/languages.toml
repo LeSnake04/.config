@@ -17,6 +17,10 @@ formatter = { command = "black", args = ["--quiet", "-"] }
 auto-format = true
 
 [[language]]
+name = "java"
+file-types = ["java", "pde"]
+
+[[language]]
 name = "bash"
 indent = { tab-width = 4, unit = "\t" }
 formatter = { command = "shfmt" }
