@@ -55,3 +55,9 @@ auto-format = true
 name = "tsx"
 formatter = { command = 'deno', args = ["fmt", "-", "--ext", "tsx" ] }
 auto-format = true
+
+[[language]]
+name = "xml"
+file-types=["xml","ui"]
+language-server = {command = "lemminx"}
+formatter = {command = "xmllint", args = ["--format"]}
