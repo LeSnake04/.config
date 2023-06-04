@@ -3,6 +3,9 @@ theme = "ayu_dark"
 [editor]
 line-number = "relative"
 
+[editor.lsp]
+display-inlay-hints = true
+
 [editor.cursor-shape]
 insert = "underline"
 
