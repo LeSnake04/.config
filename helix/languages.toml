@@ -19,6 +19,8 @@ auto-format = true
 [[language]]
 name = "java"
 file-types = ["java", "pde"]
+formatter = { command = "google_java_format"}
+# auto-format = true
 
 [[language]]
 name = "bash"
