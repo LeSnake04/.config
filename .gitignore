@@ -7,3 +7,4 @@
 !wezterm/**/*
 !helix/
 !helix/**/*
+helix/runtime/grammars
