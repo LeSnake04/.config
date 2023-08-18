@@ -15,3 +15,4 @@ C = [":w", ":bc"]
 w = ":w"
 W = ":wa"
 x = ":xa"
+f = ":format"
