@@ -6,6 +6,9 @@ line-number = "relative"
 [editor.lsp]
 display-inlay-hints = true
 
+[editor.soft-wrap]
+enable = true
+
 [editor.cursor-shape]
 insert = "underline"
 
