@@ -9,4 +9,6 @@
 !helix/**/*
 !zellij/
 !zellij/**/*
+!home_dotfiles/
+!home_dotfiles/**/*
 helix/runtime/grammars

@@ -1,0 +1,152 @@
+" Must be done first to tell other plugins that this is the leader key
+let mapleader=" "
+
+" https://github.com/JetBrains/ideavim/wiki/IdeaVim-Plugins
+set clipboard+=unnamed
+set clipboard+=ideaput
+set ideajoin
+set idearefactormode=keep
+set incsearch
+set relativenumber
+set showmode
+set hlsearch
+set surround
+set visualbell  
+set commentary
+set highlightedyank
+set argtextobj
+set matchit
+set multiple-cursors
+" requires easymotion and ace-jump plugins
+set easymotion
+" requires quickscope plugin
+set quickscope
+
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+nmap \e :e ~/.ideavimrc<CR>
+nmap \r <Action>(IdeaVim.ReloadVimRc.reload)
+nmap w <Action>(EditorNextWordWithSelection)
+nmap b <Action>(EditorPreviousWordWithSelection)
+nmap x V
+nmap C <Action>(EditorCloneCaretBelow)
+nmap <a-s-c> <Action>(EditorCloneCaretAbove)
+
+nmap <s-u> <Action>($Redo)
+
+nmap <c-z> <Action>(ToggleDistractionFreeMode)
+nmap <c-c> <Action>(CommentByLineComment)
+xmap <c-c> <Action>(CommentByLineComment)
+
+nmap <c-t> <Action>(ActivateTerminalToolWindow)
+imap <c-x> <Action>(CodeCompletion)
+nmap <leader>t <Action>(Terminal.OpenInTerminal)
+
+nmap <c-w>v <Action>(SplitVertically)
+nmap <c-w>s <Action>(SplitHorizontally)
+nmap <c-w>W <Action>(MoveEditorToOppositeTabGroup)
+nmap <c-w>w <Action>(NextWindow)
+
+nmap <leader>q <Action>(CloseContent)
+nmap <leader>Q <Action>(CloseAllEditors)
+nmap <leader>x <Action>(HideAllWindows)
+nmap <leader>k <Action>(QuickJavaDoc)
+
+nmap ]d <Action>(GotoNextError)
+nmap [d <Action>(GotoPreviousError)
+nmap ]g <Action>(VcsShowNextChangeMarker)
+nmap [g <Action>(VcsShowPrevChangeMarker)
+nmap ]m <Action>(MethodDown)
+nmap [m <Action>(MethodUp)
+
+nmap <leader>r <Action>(Refactorings.QuickListPopupAction)
+nmap <leader>= <Action>(ReformatCode)
+nmap <leader>j <Action>(RecentLocations)
+
+nmap gr <Action>(GotoDeclaration)
+nmap gi <Action>(GotoImplementation)
+nmap gd <Action>(GotoDeclaration)
+nmap gT <Action>(GotoTest)
+nmap gp <Action>(GotoSuperMethod)
+nmap gy <Action>(GotoTypeDeclaration)
+nmap gm <Action>(RecentFiles)
+
+nmap mm <Action>(EditorMatchBrace)
+
+nmap <BS>f <Action>(ReformatCode)
+nmap <BS>c <Action>(CloseActiveTab)
+nmap <BS>w <Action>(SaveDocument)
+nmap <BS>W <Action>(SaveAll)
+
+nmap gh 0
+nmap gs ^
+nmap gl $
+nmap ge G
+"nmap x <Action>(EditorMoveDownAndScrollWithSelection)
+
+xmap gh 0
+xmap gs ^
+xmap gl $
+xmap ge G
+
+nmap <leader>S <Action>(GotoSymbol)
+nmap <leader>s <Action>(FileStructurePopup)
+nmap <leader>F <Action>(FindInPath)
+nmap <leader>f <Action>(GotoFile)
+nmap <c-f> <Action>(ActivateFindToolWindow)
+nmap <leader>/ <Action>(SearchEverywhere)
+nmap <leader>o <Action>(ActivateProjectToolWindow)
+nmap <leader>D <Action>(ActivateProblemsViewToolWindow)
+nmap <leader>d <Action>(ActivateProblemsViewToolWindow)
+nmap <leader>#r <Action>(IdeaVim.ReloadVimRc.reload)
+
+nmap <leader>a <Action>(ShowIntentionActions)
+nmap <leader>p <Action>(PasteMultiple)
+nmap <leader>z <Action>(ChangeIdeScale)
+
+nmap <leader>g <Action>(Vcs.QuickListPopupAction)
+nmap <leader>b <Action>(RecentChangedFiles)
+nmap <leader>B <Action>(RecentFiles)
+nmap <leader><cr> :nohlsearch<CR>
+
+nmap <c-o> <Action>(Back)
+nmap <c-i> <Action>(Forward)
+nmap <s-k> <Action>(ExpressionTypeInfo)
+nmap <c-k> <Action>(ShowErrorDescription)
+nmap <s-c-k> <Action>(QuickJavaDoc)
+
+nmap <leader>uh <Action>(ToggleInlayHintsGloballyAction)
+nmap <leader>uw <Action>(EditorToggleShowWhitespaces)
+nmap <leader>y <Action>(CopyReferencePopupGroup)
+
+" Remap multiple-cursors shortcuts to match terryma/vim-multiple-cursors
+nmap <C-n> <Plug>NextWholeOccurrence
+" Does not work on column selection mode
+xmap <C-n> <Plug>NextWholeOccurrence
+nmap g<C-n> <Plug>NextOccurrence
+xmap g<C-n> <Plug>NextOccurrence
+nmap <C-x> <Plug>SkipOccurrence
+xmap <C-x> <Plug>SkipOccurrence
+nmap <C-p> <Plug>RemoveOccurrence
+xmap <C-p> <Plug>RemoveOccurrence
+
+" Note that the default <A-n> and g<A-n> shortcuts don't work on Mac due to dead keys.
+" <A-n> is used to enter accented text e.g. ñ
+" Alternatively use the Unicode hex keyboard in macOS
+nmap <S-C-n> <Plug>AllWholeOccurrences
+xmap <S-C-n> <Plug>AllWholeOccurrences
+nmap g<S-C-n> <Plug>AllOccurrences
+xmap g<S-C-n> <Plug>AllOccurrences
+
+
+""" Running and Debugging
+nmap <leader>gr <Action>(ContextRun)
+nmap <leader>gc <Action>(RunClass)
+nmap <leader>gF <Action>(ChooseRunConfiguration)
+nmap <leader>gt <Action>(ActivateRunToolWindow)
+nmap <leader>gR <Action>(Rerun)
+nmap <leader>gf <Action>(RerunFailedTests)
+nmap <leader>gb <Action>(ToggleLineBreakpoint)
+nmap <leader>gd <Action>(ContextDebug)
+nmap <leader>gD <Action>(ActivateDebugToolWindow)
+nmap <leader>ga <Action>(XDebugger.AttachToProcess)
