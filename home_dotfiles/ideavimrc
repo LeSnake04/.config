@@ -14,9 +14,11 @@ set surround
 set visualbell  
 set commentary
 set highlightedyank
+set which-key
 set argtextobj
 set matchit
 set multiple-cursors
+set notimeout
 " requires easymotion and ace-jump plugins
 set easymotion
 " requires quickscope plugin
@@ -28,7 +30,14 @@ nmap \e :e ~/.ideavimrc<CR>
 nmap \r <Action>(IdeaVim.ReloadVimRc.reload)
 nmap w <Action>(EditorNextWordWithSelection)
 nmap b <Action>(EditorPreviousWordWithSelection)
+nmap dd <Del>
 nmap x V
+nmap xx 2V
+nmap t vt
+nmap T vT
+nmap f vf
+nmap F vF
+
 nmap C <Action>(EditorCloneCaretBelow)
 nmap <a-s-c> <Action>(EditorCloneCaretAbove)
 
