@@ -1,6 +1,8 @@
 *
 
 !.gitignore
+!nvim/
+!nvim/**/*
 !astronvim/
 !astronvim/**/*
 !wezterm/
