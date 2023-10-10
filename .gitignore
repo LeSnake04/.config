@@ -3,6 +3,7 @@
 !.gitignore
 !nvim/
 !nvim/**/*
+nvim/lazy-lock.json
 !astronvim/
 !astronvim/**/*
 !wezterm/
