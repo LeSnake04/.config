@@ -28,12 +28,24 @@ set easymotion
 
 nmap \e :e ~/.ideavimrc<CR>
 nmap \r <Action>(IdeaVim.ReloadVimRc.reload)
+nmap w <Action>(EditorNextWordWithSelection)
+nmap b <Action>(EditorPreviousWordWithSelection)
+nmap d <Del>
+nmap dd <Del><Del>
+nmap c <Del>i
+nmap x V
+nmap xx 2V
+nmap t vt
+nmap T vT
+nmap f vf
+nmap F vF
 
-"nmap C <Action>(EditorCloneCaretBelow)
-"nmap <a-s-c> <Action>(EditorCloneCaretAbove)
+nmap C <Action>(EditorCloneCaretBelow)
+nmap <a-s-c> <Action>(EditorCloneCaretAbove)
 
 nmap <s-u> <Action>($Redo)
 
+nmap <c-z> <Action>(ToggleDistractionFreeMode)
 nmap <c-c> <Action>(CommentByLineComment)
 xmap <c-c> <Action>(CommentByLineComment)
 
@@ -59,6 +71,7 @@ nmap ]m <Action>(MethodDown)
 nmap [m <Action>(MethodUp)
 
 nmap <leader>r <Action>(Refactorings.QuickListPopupAction)
+nmap <leader>= <Action>(ReformatCode)
 nmap <leader>j <Action>(RecentLocations)
 
 nmap gr <Action>(GotoDeclaration)
@@ -69,12 +82,23 @@ nmap gp <Action>(GotoSuperMethod)
 nmap gy <Action>(GotoTypeDeclaration)
 nmap gm <Action>(RecentFiles)
 
+nmap mm <Action>(EditorMatchBrace)
 
 nmap <BS>f <Action>(ReformatCode)
 nmap <BS>c <Action>(CloseActiveTab)
 nmap <BS>w <Action>(SaveDocument)
 nmap <BS>W <Action>(SaveAll)
-nmap <BS>r <Action>(ContextRun)
+
+nmap gh 0
+nmap gs ^
+nmap gl $
+nmap ge G
+"nmap x <Action>(EditorMoveDownAndScrollWithSelection)
+
+xmap gh 0
+xmap gs ^
+xmap gl $
+xmap ge G
 
 nmap <leader>S <Action>(GotoSymbol)
 nmap <leader>s <Action>(FileStructurePopup)
@@ -127,6 +151,7 @@ xmap g<S-C-n> <Plug>AllOccurrences
 
 
 """ Running and Debugging
+nmap <leader>gr <Action>(ContextRun)
 nmap <leader>gc <Action>(RunClass)
 nmap <leader>gF <Action>(ChooseRunConfiguration)
 nmap <leader>gt <Action>(ActivateRunToolWindow)
