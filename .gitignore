@@ -9,8 +9,10 @@
 !wezterm/**/*
 !helix/
 !helix/**/*
+helix/runtime/grammars
 !zellij/
 !zellij/**/*
 !home_dotfiles/
 !home_dotfiles/**/*
-helix/runtime/grammars
+!awesome/
+!awesome/*/**
