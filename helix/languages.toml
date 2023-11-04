@@ -4,12 +4,12 @@
 name = "rust"
 auto-format = true
 
-[[toml]]
+[language-server.rust-analyzer.config.checkOnSave]
+command = "clippy"
+
+[[language]]
 name = "toml"
 formatter = { command = "taplo", args = ["format", "-"] }
-
-[language.config.checkOnSave]
-command = "clippy"
 
 [[languge]]
 name = "python"
@@ -19,7 +19,7 @@ auto-format = true
 [[language]]
 name = "java"
 file-types = ["java", "pde"]
-formatter = { command = "google_java_format"}
+formatter = { command = "google_java_format" }
 # auto-format = true
 
 [[language]]
@@ -35,35 +35,35 @@ auto-format = true
 
 [[language]]
 name = "javascript"
-formatter = { command = 'deno', args = ["fmt", "-", "--ext", "js" ] }
+formatter = { command = 'deno', args = ["fmt", "-", "--ext", "js"] }
 auto-format = true
 
 [[language]]
 name = "json"
-formatter = { command = 'deno', args = ["fmt", "-", "--ext", "json" ] }
+formatter = { command = 'deno', args = ["fmt", "-", "--ext", "json"] }
 
 [[language]]
 name = "markdown"
-formatter = { command = 'deno', args = ["fmt", "-", "--ext", "md" ] }
+formatter = { command = 'deno', args = ["fmt", "-", "--ext", "md"] }
 auto-format = true
 
 [[language]]
 name = "typescript"
-formatter = { command = 'deno', args = ["fmt", "-", "--ext", "ts" ] }
+formatter = { command = 'deno', args = ["fmt", "-", "--ext", "ts"] }
 auto-format = true
 
 [[language]]
 name = "jsx"
-formatter = { command = 'deno', args = ["fmt", "-", "--ext", "jsx" ] }
+formatter = { command = 'deno', args = ["fmt", "-", "--ext", "jsx"] }
 auto-format = true
 
 [[language]]
 name = "tsx"
-formatter = { command = 'deno', args = ["fmt", "-", "--ext", "tsx" ] }
+formatter = { command = 'deno', args = ["fmt", "-", "--ext", "tsx"] }
 auto-format = true
 
 [[language]]
 name = "xml"
-file-types=["xml","ui"]
-language-server = {command = "lemminx"}
-formatter = {command = "xmllint", args = ["--format"]}
+file-types = ["xml", "ui"]
+language-servers = ["lemminx"]
+formatter = { command = "xmllint", args = ["--format"] }
