@@ -1,15 +1,16 @@
-# auto-format = true
+[language-server.lemminx]
+command = "lemminx"
 
 [[language]]
 name = "rust"
 auto-format = true
 
-[[toml]]
+[language-server.rust-analyzer.config.check]
+command = "clippy"
+
+[[language]]
 name = "toml"
 formatter = { command = "taplo", args = ["format", "-"] }
-
-[language.config.checkOnSave]
-command = "clippy"
 
 [[languge]]
 name = "python"
@@ -65,5 +66,5 @@ auto-format = true
 [[language]]
 name = "xml"
 file-types=["xml","ui"]
-language-server = {command = "lemminx"}
+language-servers = [ "lemminx" ]
 formatter = {command = "xmllint", args = ["--format"]}
