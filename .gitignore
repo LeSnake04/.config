@@ -2,18 +2,20 @@
 
 !.gitignore
 !nvim/
-!nvim/**/*
+!nvim/*
 nvim/lazy-lock.json
 !astronvim/
-!astronvim/**/*
+!astronvim/*
 !wezterm/
-!wezterm/**/*
+!wezterm/*
 !helix/
-!helix/**/*
+!helix/*
 helix/runtime/grammars
 !zellij/
-!zellij/**/*
+!zellij/*
 !home_dotfiles/
-!home_dotfiles/**/*
+!home_dotfiles/*
 !awesome/
-!awesome/*/**
+!awesome/*
+!gitui/
+!gitui/*
