@@ -9,10 +9,14 @@ if not vim.loop.fs_stat(lazypath) then
 		lazypath,
 	})
 end
+local vopt = vim.opt
 vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
 
 vim.wo.number = true
+vopt.tabstop = 4
+vopt.softtabstop = 4
+vopt.shiftwidth = 4
 vim.wo.relativenumber = true
 
 vim.g.coq_settings = {
@@ -38,6 +42,15 @@ require('lazy').setup({
 		-- or                              , branch = '0.1.x',
 		dependencies = { 'nvim-lua/plenary.nvim' }
 	},
+	{
+		'numToStr/Comment.nvim',
+		opts = {
+			mappings = {
+				basic = true,
+				extra = false,
+			}
+		}
+	},
 	'nvim-lua/completion-nvim',
 	'nvim-lua/lsp-status.nvim',
 	'nvim-lua/lsp_extensions.nvim',
@@ -58,6 +71,9 @@ require('lazy').setup({
 	'hrsh7th/cmp-buffer',
 	'hrsh7th/cmp-path',
 	'hrsh7th/cmp-cmdline',
+	'hrsh7th/vim-vsnip',
+	'hrsh7th/vim-vsnip-integ',
+	"Lilja/zellij.nvim",
 	'hrsh7th/nvim-cmp',
 	{
 		"folke/which-key.nvim",
@@ -122,7 +138,6 @@ cmp.setup({
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-
 -- lsp
 --require'nvim-lsp-installer'.setup{capabilities = capabilities}
 lspconfig.rust_analyzer.setup { capabilities = capabilities }
@@ -130,15 +145,17 @@ lspconfig.sqlls.setup { capabilities = capabilities }
 lspconfig.jdtls.setup { capabilities = capabilities }
 lspconfig.pyright.setup { capabilities = capabilities }
 lspconfig.omnisharp.setup { capabilities = capabilities }
+lspconfig.marksman.setup { capabilities = capabilities }
+
 lspconfig.rust_analyzer.setup {
+	capabilities = capabilities,
 	-- Server-specific settings. See `:help lspconfig-setup`
 	settings = {
 		['rust-analyzer'] = {},
 	},
 }
-
-
-require 'lspconfig'.lua_ls.setup {
+lspconfig.lua_ls.setup {
+	capabilities = capabilities,
 	on_init = function(client)
 		local path = client.workspace_folders[1].name
 		if not vim.loop.fs_stat(path .. '/.luarc.json') and not vim.loop.fs_stat(path .. '/.luarc.jsonc') then
@@ -177,6 +194,11 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 
+local function lsp_format()
+	vim.lsp.buf.format { async = true }
+end
+
+
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -203,8 +225,29 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
 		vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
 		vim.keymap.set('n', '<space>d', '<Cmd>TroubleToggle<CR>', opts)
-		vim.keymap.set('n', '<space>f', function()
-			vim.lsp.buf.format { async = true }
-		end, opts)
-	end,
+		vim.keymap.set('n', '<space>f', lsp_format, opts)
+		vim.keymap.set('n', '<BS>f', lsp_format, opts)
+	end
 })
+
+
+
+vim.keymap.set(
+    {"n"},
+    "<C-k>",
+    ":call vm#commands#add_cursor_up(0, v:count1)<cr>",
+    { noremap = true, silent = true }
+)
+
+
+vim.keymap.set(
+    {"n"},
+    "<C-j>",
+    ":call vm#commands#add_cursor_down(0, v:count1)<cr>",
+    { noremap = true, silent = true }
+)
+
+
+vim.keymap.set('n', '<BS>w', ":w<CR>")
+vim.keymap.set('n', '<BS>q', ":q<CR>")
+vim.keymap.set('n', '<BS>x', ":xa<CR>")

@@ -1,11 +1,12 @@
-# auto-format = true
+[language-server.lemminx]
+command = "lemminx"
+
+[language-server.rust-analyzer.config.check]
+command = "clippy"
 
 [[language]]
 name = "rust"
 auto-format = true
-
-[language-server.rust-analyzer.config.checkOnSave]
-command = "clippy"
 
 [[language]]
 name = "toml"
