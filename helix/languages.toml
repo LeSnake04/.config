@@ -35,7 +35,7 @@ auto-format = true
 
 [[language]]
 name = "javascript"
-formatter = { command = 'deno', args = ["fmt", "-", "--ext", "js"] }
+formatter = { command = 'prettier', args = ["--parser", "javascript"] }
 auto-format = true
 
 [[language]]
@@ -43,23 +43,14 @@ name = "json"
 formatter = { command = 'deno', args = ["fmt", "-", "--ext", "json"] }
 
 [[language]]
-name = "markdown"
-formatter = { command = 'deno', args = ["fmt", "-", "--ext", "md"] }
-auto-format = true
-
-[[language]]
 name = "typescript"
-formatter = { command = 'deno', args = ["fmt", "-", "--ext", "ts"] }
+#formatter = { command = 'deno', args = ["fmt", "-", "--ext", "ts"] }
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
 auto-format = true
 
 [[language]]
-name = "jsx"
-formatter = { command = 'deno', args = ["fmt", "-", "--ext", "jsx"] }
-auto-format = true
-
-[[language]]
-name = "tsx"
-formatter = { command = 'deno', args = ["fmt", "-", "--ext", "tsx"] }
+name = "markdown"
+formatter = { command = 'prettier', args = ["--parser", "markdown"] }
 auto-format = true
 
 [[language]]
