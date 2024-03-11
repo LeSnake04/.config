@@ -146,6 +146,17 @@ lspconfig.jdtls.setup { capabilities = capabilities }
 lspconfig.pyright.setup { capabilities = capabilities }
 lspconfig.omnisharp.setup { capabilities = capabilities }
 lspconfig.marksman.setup { capabilities = capabilities }
+lspconfig.arduino_language_server.setup { capabilities = capabilities }
+lspconfig.typst_lsp.setup { capabilities = capabilities }
+lspconfig.ltex.setup {
+	capabilities = capabilities,
+	settings = {
+		ltex = {
+			language = "en-US",
+			languageToolHttpServerUri = "https://lt.lesnake.xyz/",
+		}
+	}
+}
 
 lspconfig.rust_analyzer.setup {
 	capabilities = capabilities,
@@ -214,6 +225,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
 		vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
 		vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+		vim.keymap.set('n', '<space>a', vim.lsp.buf.code_action, opts)
 		vim.keymap.set('n', '<space>k', vim.lsp.buf.signature_help, opts)
 		vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
 		vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
@@ -233,18 +245,18 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 
 vim.keymap.set(
-    {"n"},
-    "<C-k>",
-    ":call vm#commands#add_cursor_up(0, v:count1)<cr>",
-    { noremap = true, silent = true }
+	{ "n" },
+	"<C-k>",
+	":call vm#commands#add_cursor_up(0, v:count1)<cr>",
+	{ noremap = true, silent = true }
 )
 
 
 vim.keymap.set(
-    {"n"},
-    "<C-j>",
-    ":call vm#commands#add_cursor_down(0, v:count1)<cr>",
-    { noremap = true, silent = true }
+	{ "n" },
+	"<C-j>",
+	":call vm#commands#add_cursor_down(0, v:count1)<cr>",
+	{ noremap = true, silent = true }
 )
 
 
