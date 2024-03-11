@@ -1,3 +1,7 @@
-nvim/lazy-lock.jsom
-dotfiles-backup/
-.git
+\nvim/lazy-lock.jsom
+\dotfiles-backup/
+\.git
+\.gitignore
+\.stow
+\.stowrc
+\Makefile
