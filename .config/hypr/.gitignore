@@ -1,5 +1,5 @@
 custom.conf
-custom/*
+custom/**
 hardware.conf
 
 # managed by ewg-displays
