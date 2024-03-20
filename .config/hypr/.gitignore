@@ -1,0 +1,8 @@
+custom.conf
+custom/*
+hardware.conf
+
+# managed by ewg-displays
+monitors.conf 
+workspaces.conf
+
