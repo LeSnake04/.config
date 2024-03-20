@@ -2,6 +2,7 @@
 typst-lsp = { command = "typst-lsp" }
 lemminx = { command = "lemminx" }
 arduino-language-server = { command = "arduino-language-server" }
+htmx-lsp = { command = "htmx-lsp2" }
 
 [language-server.rust-analyzer.config.check]
 command = "clippy"
@@ -60,6 +61,10 @@ name = "xml"
 file-types = ["xml", "ui"]
 language-servers = ["lemminx"]
 formatter = { command = "xmllint", args = ["--format"] }
+
+[[language]]
+name = "html"
+language-servers = [ "vscode-html-language-server", "htmx-lsp" ]
 
 [[language]]
 name = "arduino"
