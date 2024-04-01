@@ -7,6 +7,11 @@ htmx-lsp = { command = "htmx-lsp2" }
 [language-server.rust-analyzer.config.check]
 command = "clippy"
 
+[language-server.pylsp.config.pylsp.plugins]
+flake8 = {enabled = true}
+pylint = {enabled = false}
+ruff = {enabled = false}
+
 [[language]]
 name = "rust"
 auto-format = true
@@ -17,7 +22,7 @@ formatter = { command = "taplo", args = ["format", "-"] }
 
 [[languge]]
 name = "python"
-formatter = { command = "black", args = ["--quiet", "-"] }
+formatter = { command = "autopep8" }
 
 [[language]]
 name = "java"
