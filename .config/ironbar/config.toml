@@ -1,5 +1,6 @@
 position = "top"
-height = 8
+name = "topbar"
+height = 4
 
 [[start]]
 type = "workspaces"
@@ -8,12 +9,20 @@ type = "workspaces"
 type = "focused"
 icon_size = 20
 
-[[start]]
-type = "launcher"
-icon_size = 20
+[start.truncate] 
+mode = "middle"
+max_length = 35
 
 [[start]]
 type = "music"
+
+[start.truncate] 
+mode = "middle"
+max_length = 20
+
+[[start]]
+type = "launcher"
+icon_size = 20
 
 [[center]]
 type = "sys_info"
@@ -41,8 +50,10 @@ type = "notifications"
 
 [[end]]
 type = "upower"
+# Only show if not on desktop
+show_if = "if grep -q 3 /sys/class/dmi/id/chassis_type; then exit 1; else exit 0; fi"
 format = "{percentage}% ~ {time_remaining}"
 
 [[end]]
 type = "clock"
-format = "%d/%m/%Y %H:%M:%S"
+format = "%d.%m.%Y %H:%M:%S"
