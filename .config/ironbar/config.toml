@@ -28,15 +28,17 @@ icon_size = 20
 type = "sys_info"
 #" {cpu_percent}%  {temp_c:coretemp-isa-0000}°C",
 format = [
-  " {cpu_percent}%",
-  "󰚗 {memory_percent}%",
-  " {uptime}"
+  "   {cpu_percent}%",
+  "󰚗  {memory_percent}%",
+  " {net_down:wlan0}/{net_up:wlan0} 󰁅",
+  "   {uptime}",
 ]
 
 [center.interval]
 memory = 15
 cpu = 1
 temps = 2
+network = 1
 
 [[end]]
 type = "tray"
@@ -51,7 +53,7 @@ type = "notifications"
 [[end]]
 type = "upower"
 # Only show if not on desktop
-show_if = "if grep -q 3 /sys/class/dmi/id/chassis_type; then exit 1; else exit 0; fi"
+show_if = "if  [[ $(cat /sys/class/dmi/id/chassis_type) -eq 3 ]]; then false; else true; fi"
 format = "{percentage}% ~ {time_remaining}"
 
 [[end]]
