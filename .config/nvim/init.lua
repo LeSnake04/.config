@@ -73,7 +73,8 @@ require('lazy').setup({
 	'hrsh7th/cmp-cmdline',
 	'hrsh7th/vim-vsnip',
 	'hrsh7th/vim-vsnip-integ',
-	"Lilja/zellij.nvim",
+	-- "Lilja/zellij.nvim",
+	"elkowar/yuck.vim",
 	'hrsh7th/nvim-cmp',
 	{
 		"folke/which-key.nvim",
