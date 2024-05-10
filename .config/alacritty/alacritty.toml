@@ -1,0 +1,2 @@
+# shell = { program = "zellij", args = ["-l", "welcome","attach","-c","init"]}
+shell = { program = "zellij", args = ["attach","-c","m"]}

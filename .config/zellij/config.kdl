@@ -78,7 +78,7 @@ pane_frames false
 // copy_command "xclip -selection clipboard" // x11
 // copy_command "wl-copy"                    // wayland
 // copy_command "pbcopy"                     // osx
-copy_command "system-copy"
+copy_command "wl-copy"
 
 // Choose the destination for copied text
 // Allows using the primary selection buffer (on x11/wayland) instead of the system clipboard.
@@ -114,9 +114,9 @@ copy_command "system-copy"
 //
 // theme_dir "/path/to/my/theme_dir"
 
-plugins {
-    tab-bar { path "tab-bar"; }
-    status-bar { path "status-bar"; }
-    strider { path "strider"; }
-    compact-bar { path "compact-bar"; }
-}
+// plugins {
+//     tab-bar { path "tab-bar"; }
+//     status-bar { path "status-bar"; }
+//     strider { path "strider"; }
+//     compact-bar { path "compact-bar"; }
+// }
