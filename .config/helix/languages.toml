@@ -36,6 +36,14 @@ formatter = { command = "shfmt" }
 auto-format = true
 
 [[language]]
+name = "css"
+auto-format = false
+
+[[language]]
+name = "html"
+auto-format = false
+
+[[language]]
 name = "javascript"
 formatter = { command = 'prettier', args = ["--parser", "javascript"] }
 auto-format = true
@@ -64,15 +72,3 @@ formatter = { command = "xmllint", args = ["--format"] }
 [[language]]
 name = "html"
 language-servers = [ "vscode-html-language-server", "htmx-lsp" ]
-
-[[language]]
-name = "arduino"
-scope = "source.arduino"
-injection-regex = "arduino"
-file-types = ["ino", "cpp", "h"]               # ⭐ this line is what matters
-comment-token = "//"
-roots = ["sketch.yaml"]
-language-servers = ["arduino-lsp"]
-indent = { tab-width = 4, unit = "    " }
-auto-format = true
-formatter = { command = "clang-format" }
