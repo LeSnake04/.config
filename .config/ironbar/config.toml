@@ -1,5 +1,5 @@
-position = "top"
 name = "topbar"
+position = "top"
 height = 4
 
 [[start]]
@@ -28,7 +28,7 @@ icon_size = 20
 type = "sys_info"
 #" {cpu_percent}%  {temp_c:coretemp-isa-0000}°C",
 format = [
-  "   {cpu_percent}%",
+  "   {cpu_percent}% : {cpu_frequency}",
   "󰚗  {memory_percent}%",
   " {net_down:wlan0}/{net_up:wlan0} 󰁅",
   "   {uptime}",
@@ -41,8 +41,11 @@ temps = 2
 network = 1
 
 [[end]]
+type = "label"
+label = "#idlemsg"
+
+[[end]]
 type = "tray"
-direction = "left_to_right"
 
 [[end]]
 type = "clipboard"
@@ -58,4 +61,5 @@ format = "{percentage}% ~ {time_remaining}"
 
 [[end]]
 type = "clock"
+locale = "de_DE"
 format = "%d.%m.%Y %H:%M:%S"
