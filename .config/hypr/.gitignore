@@ -1,8 +1,8 @@
-custom.conf
 custom/**
-hardware.conf
+custom-*.lua
 
-# managed by ewg-displays
-monitors.conf 
+# managed by nwg-displays
+monitors.lua
+monitors.conf
+workspaces.lua
 workspaces.conf
-
