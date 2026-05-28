@@ -1,22 +1,34 @@
-hl.window_rule({
-    name = "keepassxc",
-    match = { class = "^org%.keepassxc%.KeePassXC$" },
-    float = true
-})
+--- @param name string
+--- @param class string
+--- @return nil
+function FloatByClass(name, class)
+    hl.window_rule({
+        name = name,
+        match = { class = class },
+        float = true
+    })
+end
 
-hl.window_rule({
-    name = "steam_proton",
-    match = {
-        class = "steam_app_*"
-    },
-    float = true
-})
+--- @param name string
+--- @param title string
+--- @return nil
+function FloatByTitle(name, title)
+    hl.window_rule({
+        name = name,
+        match = { title = title },
+        float = true
+    })
+end
 
-hl.window_rule({
-    name = "nm-tray",
-    match = { class = "^nm%-tray$" },
-    float = true
-})
+local floatAppsByClass = {
+    keepassxc = "^org%.keepassxc%.KeePassXC$",
+    steam_proton = "^steam_app_*",
+    nm_tray = "^nm%-tray$"
+}
+
+for name, class in pairs(floatAppsByClass) do
+    FloatByClass(name, class)
+end
 
 hl.window_rule({
     name = "PIP",
@@ -26,15 +38,11 @@ hl.window_rule({
 })
 
 local floatAppsByTitle = {
-    "SCB",
-    "SCB_Playtest",
-    "SCB_Demo"
+    scb = "^SCB$",
+    scb_p = "^SCB_Playtest$",
+    scb_d = "^SCB_Demo$"
 }
 
-for _, title in ipairs(floatAppsByTitle) do
-    hl.window_rule({
-        name = title,
-        match = { title = "^" .. title .. "$" },
-        float = true
-    })
+for name, title in pairs(floatAppsByTitle) do
+    FloatByTitle(name, title)
 end

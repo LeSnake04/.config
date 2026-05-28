@@ -37,5 +37,8 @@ hl.config({
     },
     misc = {
         enable_anr_dialog = false,
+    },
+    xwayland = {
+        force_zero_scaling = true
     }
 })

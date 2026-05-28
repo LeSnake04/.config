@@ -1,5 +1,5 @@
 custom/**
-custom-*.lua
+custom*.lua
 
 # managed by nwg-displays
 monitors.lua
