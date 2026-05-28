@@ -2,6 +2,9 @@ name = "topbar"
 position = "top"
 height = 4
 
+[ironvar_defaults]
+idlemsg=""
+
 [[start]]
 type = "workspaces"
 
@@ -51,10 +54,15 @@ type = "tray"
 type = "clipboard"
 
 [[end]]
+type = "volume"
+format = "{icon} {percentage}%"
+max_volume = 100
+
+[[end]]
 type = "notifications"
 
 [[end]]
-type = "upower"
+type = "battery"
 # Only show if not on desktop
 show_if = "if  [[ $(cat /sys/class/dmi/id/chassis_type) -eq 3 ]]; then false; else true; fi"
 format = "{percentage}% ~ {time_remaining}"
